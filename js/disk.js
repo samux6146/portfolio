@@ -3,15 +3,16 @@ const disk = {
     "name": "projects",
     "type": "folder",
     "content": {
-        "file1": {
-            "name": "file1",
-            "type": "file",
-            "content": "Hello, world!"
-        },
-        "file2": {
-            "name": "file2",
-            "type": "file",
-            "content": "Hello, world!"
+        "personal": {
+            "name": "personal",
+            "type": "folder",
+            "content": {
+                "file1": {
+                    "name": "file1",
+                    "type": "file",
+                    "content": "Hello, world!"
+                }
+            }
         }
     }
 },

@@ -5,6 +5,7 @@ document.addEventListener('keydown', function(event) {
         document.getElementById("command").innerHTML = "";
         document.getElementById("output").innerHTML += '<div class="row"> <p style="color: #49AEF8;">' + path + '</p> <p style="color: #80D340;"> ></p> <p class="command">' + command + '</p> </div>';
         parseCommand(command);
+        window.scrollTo(0, document.body.scrollHeight - 100);
     } else if (event.key === "Backspace") {
         document.getElementById("command").innerHTML = document.getElementById("command").innerHTML.slice(0, -1);
     } else if (event.key.length > 1) {
@@ -81,6 +82,9 @@ function parseCommand(command) {
                 }
             }
         }
+    } else if (command[0] === "rm" & command[1] === "-rf" && command.length === 3) {
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus();
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="command" style="color: red;">Nice try, but you got rickrolled ;)</p> </div>';
     } else {
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">command not found: ' + command[0] + '</p> </div>';
     }
@@ -151,5 +155,3 @@ function getJsonValue(obj, path) {
     }
     return result;
 }
-// TODO: 
-// add data in disk
