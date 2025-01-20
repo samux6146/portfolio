@@ -8,14 +8,16 @@
 </head>
 <body>
     <div id="output">
-        <div class="row"> <p class="command">Hello, world!, insert presentation text here!, use help command to list all commands</p> </div>
+        <div class="row"> <p class="command">Hello, world!, insert presentation text here!, use help command to list all commands. (if you are on mobile click on the cursor to open the keyboard)</p> </div>
     </div>
     <div class="row">
         <p id="path" style="color: #49AEF8;">~/</p>
         <p style="color: #80D340;"> ></p>
         <p id="command" class="command cursor"></p>
     </div>
-    <script src="console.js"></script>
-    <script src="disk.js"></script>
+    <input id="hiddenInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" style="opacity: 0;">
+    <script src="./js/console.js"></script>
+    <script src="./js/disk.js"></script>
+    <script src="./js/mobile.js"></script>
 </body>
 </html>

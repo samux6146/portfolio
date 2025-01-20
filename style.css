@@ -43,7 +43,7 @@ p {
     display: inline-block;
     animation: blink-animation 2s step-start 0s infinite;
     -webkit-animation: blink-animation 2s step-start 0s infinite;
-  }
+}
 
 @keyframes blink-animation {
     50% {
