@@ -28,7 +28,7 @@ function parseCommand(command) {
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">ls: lists the contents of a directory</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cd: changes the current directory</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cat: displays the contents of a file</p> </div>';
-        document.getElementById("output").innerHTML += '<div class="row"> <p class="command">exit: closes the console</p> </div>';
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="command">exit: closes the console (chrome based only)</p> </div>';
     }
     else if (command[0] === "clear" && command.length === 1) {
         document.getElementById("output").innerHTML = "";
