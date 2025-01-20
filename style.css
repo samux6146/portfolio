@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('fonts/MesloLGS-NF-Regular.ttf') format('ttf');
+    src: url('fonts/MesloLGS-NF-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background-color: #0D0F17;
+    font-family: 'MesloLGS NF';
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    color : white;
+    height: auto;
+}
+
+
+p {
+    margin: 2px;
+    overflow-wrap: break-word;
+}
+
+.command {
+    width: 95%;
+}
+
+.file {
+    color: #E3DFDA;
+}
+.folder {
+    color: #5FD4E8;
+}
+
+.cursor::after {
+    content: "⠀";
+    background-color: #EB332C;
+    height: 1.2rem;
+    display: inline-block;
+    animation: blink-animation 2s step-start 0s infinite;
+    -webkit-animation: blink-animation 2s step-start 0s infinite;
+  }
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
