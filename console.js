@@ -64,7 +64,7 @@ function parseCommand(command) {
             path = path.split("/");
             path.shift();
             for (key in path) {
-                if (getJsonValue(disk, "." + path[key] + ".type") === "file") {
+                if (getJsonValue(disk, renderedpath + "." + path[key] + ".type") === "file") {
                     renderedpath += "." + path[key];
                 } else {
                     renderedpath += "." + path[key] + ".content";
