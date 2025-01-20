@@ -28,6 +28,7 @@ function parseCommand(command) {
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">ls: lists the contents of a directory</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cd: changes the current directory</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cat: displays the contents of a file</p> </div>';
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="command">exit: closes the console</p> </div>';
     }
     else if (command[0] === "clear" && command.length === 1) {
         document.getElementById("output").innerHTML = "";
@@ -85,6 +86,8 @@ function parseCommand(command) {
     } else if (command[0] === "rm" & command[1] === "-rf" && command.length === 3) {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus();
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command" style="color: red;">Nice try, but you got rickrolled ;)</p> </div>';
+    } else if (command[0] === "exit") {
+        window.close('','_parent','');
     } else {
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">command not found: ' + command[0] + '</p> </div>';
     }
