@@ -1,9 +1,7 @@
-// paste test (working on it)
-/*
 document.addEventListener('paste', function(event) {
     document.getElementById("command").innerHTML += event.clipboardData.getData('text');
 })
-*/
+
 
 let history = [];
 let historypos = 0;
@@ -13,7 +11,7 @@ document.addEventListener('keydown', function(event) {
         var command = document.getElementById("command").innerHTML;
         var path = document.getElementById("path").innerHTML;
         document.getElementById("command").innerHTML = "";
-        document.getElementById("output").innerHTML += '<div class="row"> <p class="path">' + path + '</p> <p style="color: #80D340;"> ></p> <p class="command">' + command + '</p> </div>';
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="path">' + path + '</p> <p style="color: #80D340;"> </p> <p class="command">' + command + '</p> </div>';
         if (command !== "") {
             history.push(command);
             historypos = history.length;   
@@ -37,6 +35,8 @@ document.addEventListener('keydown', function(event) {
             document.getElementById("command").innerHTML = "";
         }
         event.preventDefault();
+    } else if (event.ctrlKey | event.metaKey) {
+        return;
     } else if (event.key.length > 1) {
         return;
     } else {
@@ -190,4 +190,3 @@ function getJsonValue(obj, path) {
 
 // TODO:
 // - implement autocomplete
-// - implement paste
