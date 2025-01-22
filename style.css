@@ -36,6 +36,11 @@ p {
     color: #5FD4E8;
 }
 
+.path {
+    color: #49AEF8;
+    white-space: nowrap;
+}
+
 .cursor::after {
     content: "⠀";
     background-color: #EB332C;

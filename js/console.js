@@ -3,7 +3,7 @@ document.addEventListener('keydown', function(event) {
         var command = document.getElementById("command").innerHTML;
         var path = document.getElementById("path").innerHTML;
         document.getElementById("command").innerHTML = "";
-        document.getElementById("output").innerHTML += '<div class="row"> <p style="color: #49AEF8;">' + path + '</p> <p style="color: #80D340;"> ></p> <p class="command">' + command + '</p> </div>';
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="path">' + path + '</p> <p style="color: #80D340;"> ></p> <p class="command">' + command + '</p> </div>';
         parseCommand(command);
         window.scrollTo(0, document.body.scrollHeight - 100);
     } else if (event.key === "Backspace") {
