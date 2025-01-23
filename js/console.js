@@ -84,7 +84,6 @@ document.addEventListener('keydown', function(event) {
             })
             var lenattr = attr.length - 1
             folders.forEach(fold => {
-                console.log(lenattr)
                 if (fold.startsWith(attr[lenattr])) {
                     res.push(fold);
                 }
@@ -98,12 +97,17 @@ document.addEventListener('keydown', function(event) {
             }
             if (res.length === 1 & resfil.length === 0) {
                 document.getElementById("autocomplete").innerHTML = "";
+                var localpath = document.getElementById("path").innerHTML
+                localpath = localpath.substring(2)
                 var p = path.substring(2);
+                p = p.replace(localpath, "")
                 document.getElementById("command").innerHTML = command[0] + " " + p + res[0] + "/";
             } else if (res.length === 0 & resfil.length === 1){
                 document.getElementById("autocomplete").innerHTML = "";
+                var localpath = document.getElementById("path").innerHTML
+                localpath = localpath.substring(2)
                 var p = path.substring(2);
-                console.log(p)
+                p = p.replace(localpath, "")
                 document.getElementById("command").innerHTML = command[0] + " " + p + resfil[0];
             } else {
                 var out = "";
