@@ -35,6 +35,33 @@ const disk = {
                     "content": "Hello, world!"
                 }
             }
+        },
+        "inside2": {
+            "name": "inside2",
+            "type": "folder",
+            "content": {
+                "file1": {
+                    "name": "file1",
+                    "type": "file",
+                    "content": "Hello, world!"
+                },
+                "file2": {
+                    "name": "file2",
+                    "type": "file",
+                    "content": "Hello, world!"
+                },
+                "inside": {
+                    "name": "inside",
+                    "type": "folder",
+                    "content": {
+                        "file1": {
+                            "name": "file1",
+                            "type": "file",
+                            "content": "Hello, world!"
+                        }
+                    }
+                }
+            }
         }
     }
 },

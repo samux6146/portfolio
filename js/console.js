@@ -12,6 +12,7 @@ document.addEventListener('keydown', function(event) {
         var command = document.getElementById("command").innerHTML;
         var path = document.getElementById("path").innerHTML;
         document.getElementById("command").innerHTML = "";
+        document.getElementById("autocomplete").innerHTML = "";
         document.getElementById("output").innerHTML += '<div class="row"> <p class="path">' + path + '</p> <p style="color: #80D340;">&gt;</p> <p class="command">' + command + '</p> </div>';
         if (command !== "") {
             history.push(command);
@@ -36,6 +37,87 @@ document.addEventListener('keydown', function(event) {
         }
     } else if (event.ctrlKey | event.metaKey) {
         return;
+    } else if (event.key === "Tab") {
+        var commands = ["help", "clear", "ls", "cd", "cat", "exit"];
+        var command = document.getElementById("command").innerHTML;
+        var path = document.getElementById("path").innerHTML;
+        command = command.toLowerCase();
+        command = command.split(" ");
+        if (command.length === 1) {
+            var res = [];
+            commands.forEach(com => {
+                if (com.startsWith(command[0])) {
+                    res.push(com);
+                }
+            })
+            if (res.length === 1) {
+                document.getElementById("autocomplete").innerHTML = "";
+                document.getElementById("command").innerHTML = res[0];
+            } else {
+                var out = "";
+                res.forEach(com => {
+                    out += '<div class="row">' + com + '⠀⠀</div>';
+                })
+                document.getElementById("autocomplete").innerHTML = '<div class="row">' + out + '</div>';
+            }
+        } else if (["ls", "cd", "cat"].includes(command[0])){
+            var attr = command[1].split("/");
+            //var opath = getDir(path)
+            attr.forEach(el => {
+                getDir(path).forEach( d => {
+                if (el === d[0]) {
+                    path += el + "/";
+                }
+                })
+            }) 
+            var gdir = getDir(path);
+            var res = [];
+            var resfil = [];
+            var folders = [];
+            var files = [];
+            gdir.forEach(dir => {
+                if (dir[1] === "folder") {
+                    folders.push(dir[0]);
+                } else if (dir[1] === "file") {
+                    files.push(dir[0]);
+                }
+            })
+            var lenattr = attr.length - 1
+            folders.forEach(fold => {
+                console.log(lenattr)
+                if (fold.startsWith(attr[lenattr])) {
+                    res.push(fold);
+                }
+            })
+            if (command[0] === "cat"){
+                files.forEach(fil => {
+                    if (fil.startsWith(attr[lenattr])) {
+                        resfil.push(fil);
+                    }
+                })   
+            }
+            if (res.length === 1 & resfil.length === 0) {
+                document.getElementById("autocomplete").innerHTML = "";
+                var p = path.substring(2);
+                document.getElementById("command").innerHTML = command[0] + " " + p + res[0] + "/";
+            } else if (res.length === 0 & resfil.length === 1){
+                document.getElementById("autocomplete").innerHTML = "";
+                var p = path.substring(2);
+                console.log(p)
+                document.getElementById("command").innerHTML = command[0] + " " + p + resfil[0];
+            } else {
+                var out = "";
+                res.forEach(fold => {
+                    out += '<div class="row folder">' + fold + '⠀⠀</div>';
+                })
+                if (command[0] === "cat") {
+                    resfil.forEach(fil => {
+                        out += '<div class="row file">' + fil + '⠀⠀</div>';
+                    })
+                }
+                document.getElementById("autocomplete").innerHTML = '<div class="row">' + out + '</div>';
+            }
+        }
     } else if (event.key.length > 1) {
         return;
     } else {
@@ -188,4 +270,4 @@ function getJsonValue(obj, path) {
 }
 
 // TODO:
-// - implement autocomplete
+// - write disk data
