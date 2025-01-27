@@ -221,7 +221,7 @@ function cd(path){
 
 function ls(path){
     var out = "";
-    if (getDir(path) === undefined) {
+    if (getDir(path)[0][0] === undefined) {
         return '<div class="row"> directory not found </div>';
     }
     getDir(path).forEach(e => {
