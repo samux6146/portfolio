@@ -220,16 +220,20 @@ function cd(path){
 }
 
 function ls(path){
-    var out = "";
-    if (getDir(path)[0][0] === undefined) {
+    console.log(getDir(path))
+    if (getDir(path) === undefined) {
         return '<div class="row"> directory not found </div>';
+    } else if (getDir(path)[0][0] === undefined){
+        return '<div class="row"> not a directory </div>';
+    } else {
+        var out = "";
+        getDir(path).forEach(e => {
+            var name = e[0];
+            var type = e[1];
+            out += '<div class="row ' + type + '">' + name + '⠀⠀⠀⠀⠀</div>';
+        })
+        return out;
     }
-    getDir(path).forEach(e => {
-        var name = e[0];
-        var type = e[1];
-        out += '<div class="row ' + type + '">' + name + '⠀⠀⠀⠀⠀</div>';
-    });
-    return out;
 }
 
 function getDir(path){
