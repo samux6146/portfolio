@@ -50,6 +50,19 @@ p {
     -webkit-animation: blink-animation 2s step-start 0s infinite;
 }
 
+.line {
+    width: 100%;
+    color: white;
+}
+
+.gitlink {
+    color: gray;
+    text-decoration: none;
+}
+.gitlink:hover {
+    color: white;
+}
+
 @keyframes blink-animation {
     50% {
         opacity: 0;

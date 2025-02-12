@@ -7,7 +7,6 @@ let history = [];
 let historypos = 0;
 
 document.addEventListener('keydown', function(event) {
-    event.preventDefault();
     if (event.key === "Enter") {
         var command = document.getElementById("command").innerHTML;
         var path = document.getElementById("path").innerHTML;
@@ -18,6 +17,7 @@ document.addEventListener('keydown', function(event) {
             history.push(command);
             historypos = history.length;   
         }
+        event.preventDefault()
         parseCommand(command);
         window.scrollTo(0, document.body.scrollHeight - 100);
     } else if (event.key === "Backspace") {
@@ -27,6 +27,7 @@ document.addEventListener('keydown', function(event) {
             historypos -= 1;
             document.getElementById("command").innerHTML = history[historypos];
         }
+        event.preventDefault()
     } else if (event.key === "ArrowDown") {
         if (history.length > 0 & historypos < history.length) {
             historypos += 1;
@@ -35,9 +36,11 @@ document.addEventListener('keydown', function(event) {
         if (historypos === history.length) {
             document.getElementById("command").innerHTML = "";
         }
+        event.preventDefault()
     } else if (event.ctrlKey | event.metaKey) {
         return;
     } else if (event.key === "Tab") {
+        event.preventDefault()
         var commands = ["help", "clear", "ls", "cd", "cat", "exit"];
         var command = document.getElementById("command").innerHTML;
         var path = document.getElementById("path").innerHTML;
