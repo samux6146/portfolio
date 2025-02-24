@@ -25,6 +25,13 @@ p {
     overflow-wrap: break-word;
 }
 
+.text_disk {
+    margin-right: 2rem;
+}
+.text_disk_bottom {
+    margin-bottom: 20px;
+}
+
 .command {
     width: 95%;
 }

@@ -65,7 +65,6 @@ document.addEventListener('keydown', function(event) {
             }
         } else if (["ls", "cd", "cat"].includes(command[0])){
             var attr = command[1].split("/");
-            //var opath = getDir(path)
             attr.forEach(el => {
                 getDir(path).forEach( d => {
                 if (el === d[0]) {
@@ -146,6 +145,7 @@ function parseCommand(command) {
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cd: changes the current directory</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">cat: displays the contents of a file</p> </div>';
         document.getElementById("output").innerHTML += '<div class="row"> <p class="command">exit: closes the console (chrome based only)</p> </div>';
+        document.getElementById("output").innerHTML += '<div class="row"> <p class="command">chat: open a live chat with other users on the website</p> </div>';
     }
     else if (command[0] === "clear" && command.length === 1) {
         document.getElementById("output").innerHTML = "";
@@ -281,4 +281,4 @@ function getJsonValue(obj, path) {
 }
 
 // TODO:
-// - write disk data
+// - fix ls on mobile devices
