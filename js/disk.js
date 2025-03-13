@@ -51,6 +51,17 @@ const disk = {
                                 </h3>   \
                                 <a class="gitlink" href="https://github.com/samux6146/portfolio" target="_blank">[ Go to GitHub --> ]</a>   \
                                 <hr class="line">'
+                },
+                "x360-html": {
+                    "name": "x360-html",
+                    "type": "file",
+                    "content": '<hr class="line">   \
+                                <h1 style="color: white">X360-Html</h1> \
+                                <h3 style="color: white;" class="text_disk">  \
+                                    A vanilla html, css and js recreation of the iconic Xbox360 metro dashboard  \
+                                </h3>   \
+                                <a class="gitlink" href="https://github.com/samux6146/X360-Html" target="_blank">[ Go to GitHub --> ]</a>   \
+                                <hr class="line">'
                 }
             }
         },
